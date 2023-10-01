@@ -17,6 +17,6 @@ func (i ParserImpl) parseArg(args []string) (*Input, error) {
 	for _, arg := range args[1:(len(args))] {
 		wordsToSay = append(wordsToSay, arg)
 	}
-	input := &Input{word: wordsToSay}
+	input := &Input{Word: wordsToSay}
 	return input, nil
 }
