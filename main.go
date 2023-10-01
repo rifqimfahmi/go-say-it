@@ -11,8 +11,19 @@ func main() {
 	parser := &inputparser.ParserImpl{}
 	handler := &output.HandlerImpl{}
 
-	wordToSay, _ := parser.ParseArg(os.Args)
-	generatedUrl, _ := handler.GenerateUrl(wordToSay)
+	wordToSay, err := parser.ParseArg(os.Args)
+
+	if err != nil {
+		fmt.Println("error: ", err)
+		os.Exit(1)
+	}
+
+	generatedUrl, err := handler.GenerateUrl(wordToSay)
+
+	if err != nil {
+		fmt.Println("error: ", err)
+		os.Exit(1)
+	}
 
 	if len(generatedUrl.Urls) == 9 {
 		os.Exit(0)
