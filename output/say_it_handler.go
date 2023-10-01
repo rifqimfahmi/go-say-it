@@ -7,20 +7,20 @@ import (
 )
 
 type Output struct {
-	urls []string
+	Urls []string
 }
 
 type Handler interface {
-	generateUrl(input *inputparser.Input) (*Output, error)
+	GenerateUrl(input *inputparser.Input) (*Output, error)
 }
 
 type HandlerImpl struct {
 }
 
-func (r *HandlerImpl) generateUrl(input *inputparser.Input) *Output {
+func (r *HandlerImpl) GenerateUrl(input *inputparser.Input) (*Output, error) {
 	urlTemplate := "https://youglish.com/pronounce/%s/english/us"
 	if len(input.Word) <= 0 {
-		return nil
+		return nil, fmt.Errorf("empty input")
 	}
 
 	var urls []string
@@ -29,5 +29,5 @@ func (r *HandlerImpl) generateUrl(input *inputparser.Input) *Output {
 		urls = append(urls, sayItUrl)
 	}
 
-	return &Output{urls: urls}
+	return &Output{Urls: urls}, nil
 }

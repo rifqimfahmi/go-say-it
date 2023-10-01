@@ -3,13 +3,13 @@ package inputparser
 import "fmt"
 
 type parser interface {
-	parseArg(args []string) (*Input, error)
+	ParseArg(args []string) (*Input, error)
 }
 
 type ParserImpl struct {
 }
 
-func (i ParserImpl) parseArg(args []string) (*Input, error) {
+func (i ParserImpl) ParseArg(args []string) (*Input, error) {
 	if len(args) <= 1 {
 		return nil, fmt.Errorf("arg length is <= 1")
 	}

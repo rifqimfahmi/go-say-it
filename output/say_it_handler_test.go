@@ -11,9 +11,9 @@ func TestSayItHandler(t *testing.T) {
 	}
 	handler := &HandlerImpl{}
 
-	words := handler.generateUrl(input)
+	words, _ := handler.GenerateUrl(input)
 
-	if words.urls[0] != "https://youglish.com/pronounce/Hi+there/english/us" {
-		t.Error("unexpected output: ", words.urls[0])
+	if words.Urls[0] != "https://youglish.com/pronounce/Hi+there/english/us" {
+		t.Error("unexpected output: ", words.Urls[0])
 	}
 }
