@@ -14,7 +14,7 @@ func (i ParserImpl) ParseArg(args []string) (*Input, error) {
 		return nil, fmt.Errorf("arg length is <= 1")
 	}
 	var wordsToSay []string
-	for _, arg := range args[1:(len(args))] {
+	for _, arg := range args[1:] {
 		wordsToSay = append(wordsToSay, arg)
 	}
 	input := &Input{Word: wordsToSay}
